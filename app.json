@@ -5,7 +5,6 @@
     "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "scheme": "vera",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "assetBundlePatterns": [
@@ -21,7 +20,7 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.yourname.vera",
+      "bundleIdentifier": "com.jacobbecker.vera",
       "infoPlist": {
         "NSLocationWhenInUseUsageDescription": "Vera uses your location to show nearby listings and connect you with local sellers.",
         "NSLocationAlwaysUsageDescription": "Vera uses background location to improve nearby recommendations (optional).",
@@ -29,37 +28,50 @@
       }
     },
     "android": {
+      "package": "com.jacobbecker.vera",
+      "googleServicesFile": "./google-services.json",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#635BFF"
       },
-      "package": "com.yourname.vera",
       "permissions": [
         "android.permission.ACCESS_FINE_LOCATION",
         "android.permission.ACCESS_COARSE_LOCATION"
       ],
       "edgeToEdgeEnabled": true
     },
-    "plugins": [
-
-      "expo-web-browser",
-      [
-        "expo-location",
-        {
-          "locationAlwaysAndWhenInUsePermission": "Vera uses your location to show nearby verified deals and local sellers.",
-          "isIosBackgroundLocationEnabled": false
-        }
-      ],
-      ["@stripe/stripe-react-native" ,
+"plugins": [
+  [
+    "expo-build-properties",
     {
-      "merchantIdentifier": [],
+      "ios": {
+        "useFrameworks": "static",
+        "deploymentTarget": "15.1"
+      }
+    }
+  ],
+  [
+    "expo-camera",
+    {
+      "cameraPermission": "Vera needs camera access to take your verification selfie."
+    }
+  ],
+  [
+    "expo-location",
+    {
+      "locationAlwaysAndWhenInUsePermission": "Vera uses your location to show nearby verified deals and local sellers.",
+      "isIosBackgroundLocationEnabled": false
+    }
+  ],
+  [
+    "@stripe/stripe-react-native",
+    {
+      "merchantIdentifier": "merchant.com.jacobbecker.vera",
       "enableGooglePay": true
-    }]
-    ],
-    "web": {
-      "favicon": "./assets/favicon.png",
-      "bundler": "metro"
-    },
+    }
+  ]
+],
+
     "extra": {
       "eas": {
         "projectId": "c3b28a19-3e81-4080-bcf9-ae5a50806b02"
