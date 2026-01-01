@@ -1,0 +1,6 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -workspace Vera.xcworkspace -scheme Vera -configuration Debug -sdk iphonesimulator -destination "generic/platform=iOS Simulator" -derivedDataPath build_output
+
+Build settings from command line:
+    SDKROOT = iphonesimulator26.1
+

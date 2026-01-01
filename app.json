@@ -7,9 +7,8 @@
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "jsEngine": "jsc",
+    "assetBundlePatterns": ["**/*"],
     "splash": {
       "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
@@ -21,9 +20,9 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.jacobbecker.vera",
+      "googleServicesFile": "./GoogleService-Info.plist",
       "infoPlist": {
         "NSLocationWhenInUseUsageDescription": "Vera uses your location to show nearby listings and connect you with local sellers.",
-        "NSLocationAlwaysUsageDescription": "Vera uses background location to improve nearby recommendations (optional).",
         "ITSAppUsesNonExemptEncryption": false
       }
     },
@@ -40,38 +39,44 @@
       ],
       "edgeToEdgeEnabled": true
     },
-"plugins": [
-  [
-    "expo-build-properties",
-    {
-      "ios": {
-        "useFrameworks": "static",
-        "deploymentTarget": "15.1"
-      }
-    }
-  ],
-  [
-    "expo-camera",
-    {
-      "cameraPermission": "Vera needs camera access to take your verification selfie."
-    }
-  ],
-  [
-    "expo-location",
-    {
-      "locationAlwaysAndWhenInUsePermission": "Vera uses your location to show nearby verified deals and local sellers.",
-      "isIosBackgroundLocationEnabled": false
-    }
-  ],
-  [
-    "@stripe/stripe-react-native",
-    {
-      "merchantIdentifier": "merchant.com.jacobbecker.vera",
-      "enableGooglePay": true
-    }
-  ]
-],
-
+    "plugins": [
+      [
+        "@react-native-firebase/app",
+        { "ios": { "useModularHeaders": true } }
+      ],
+      "@react-native-firebase/auth",
+      [
+        "expo-build-properties",
+        {
+          "ios": {
+            "useFrameworks": "static",
+            "deploymentTarget": "15.1"
+          }
+        }
+      ],
+      "./plugins/withNonModularHeaders.js",
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Vera needs camera access to take your verification selfie."
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Vera uses your location to show nearby verified deals and local sellers.",
+          "isIosBackgroundLocationEnabled": false
+        }
+      ],
+      [
+        "@stripe/stripe-react-native",
+        {
+          "merchantIdentifier": "merchant.com.jacobbecker.vera",
+          "enableGooglePay": true
+        }
+      ],
+      "expo-font"
+    ],
     "extra": {
       "eas": {
         "projectId": "c3b28a19-3e81-4080-bcf9-ae5a50806b02"

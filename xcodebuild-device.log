@@ -1,0 +1,6 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -workspace Vera.xcworkspace -scheme Vera -configuration Release -sdk iphoneos -destination generic/platform=iOS -derivedDataPath build_output
+
+Build settings from command line:
+    SDKROOT = iphoneos26.1
+
