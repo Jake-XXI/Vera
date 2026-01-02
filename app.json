@@ -23,6 +23,7 @@
       "googleServicesFile": "./GoogleService-Info.plist",
       "infoPlist": {
         "NSLocationWhenInUseUsageDescription": "Vera uses your location to show nearby listings and connect you with local sellers.",
+        "NSCameraUsageDescription": "Vera needs camera access to take your verification selfie.",
         "ITSAppUsesNonExemptEncryption": false
       }
     },
@@ -34,27 +35,23 @@
         "backgroundColor": "#635BFF"
       },
       "permissions": [
+        "android.permission.CAMERA",
         "android.permission.ACCESS_FINE_LOCATION",
         "android.permission.ACCESS_COARSE_LOCATION"
       ],
       "edgeToEdgeEnabled": true
     },
     "plugins": [
-      [
-        "@react-native-firebase/app",
-        { "ios": { "useModularHeaders": true } }
-      ],
+      "@react-native-firebase/app",
       "@react-native-firebase/auth",
       [
         "expo-build-properties",
         {
           "ios": {
-            "useFrameworks": "static",
             "deploymentTarget": "15.1"
           }
         }
       ],
-      "./plugins/withNonModularHeaders.js",
       [
         "expo-camera",
         {
