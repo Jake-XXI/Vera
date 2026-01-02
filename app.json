@@ -22,8 +22,8 @@
       "bundleIdentifier": "com.jacobbecker.vera",
       "googleServicesFile": "./GoogleService-Info.plist",
       "infoPlist": {
-        "NSLocationWhenInUseUsageDescription": "Vera uses your location to show nearby listings and connect you with local sellers.",
         "NSCameraUsageDescription": "Vera needs camera access to take your verification selfie.",
+        "NSLocationWhenInUseUsageDescription": "Vera uses your location to show nearby listings and connect you with local sellers.",
         "ITSAppUsesNonExemptEncryption": false
       }
     },
@@ -44,6 +44,8 @@
     "plugins": [
       "@react-native-firebase/app",
       "@react-native-firebase/auth",
+      "@react-native-firebase/firestore",
+      "@react-native-firebase/storage",
       [
         "expo-build-properties",
         {
@@ -82,3 +84,4 @@
     "owner": "jacobbecker1212"
   }
 }
+
